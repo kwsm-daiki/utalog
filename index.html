@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://api.github.com; img-src 'self' blob: data:; base-uri 'none'; form-action 'none'">
+<title>Utalog</title>
+<meta name="description" content="カラオケ（DAM 精密採点）の点数を記録して振り返る、自分専用のアプリ">
+<meta name="theme-color" content="#0f1420">
+<meta name="color-scheme" content="dark">
+<meta name="apple-mobile-web-app-title" content="Utalog">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+<link rel="stylesheet" href="./style.css?v=1">
+</head>
+<body>
+<div id="app" class="app">
+  <header class="top">
+    <button id="backBtn" class="back" type="button" hidden aria-label="戻る">‹ 戻る</button>
+    <h1 id="title" class="brand">Utalog</h1>
+    <div class="top-right">
+      <button id="syncBtn" class="sync" type="button" aria-label="同期の状態"><span id="syncDot" class="dot"></span><span id="syncText">読み込み中</span></button>
+      <button id="gearBtn" class="gear" type="button" aria-label="設定">⚙</button>
+    </div>
+  </header>
+  <div id="banner" class="banner" hidden></div>
+  <main id="view" class="view" tabindex="-1"></main>
+  <button id="fab" class="fab" type="button" aria-label="記録を手で足す" hidden>＋</button>
+  <nav class="nav" aria-label="画面の切り替え">
+    <button type="button" data-tab="records"><span class="ni">🎤</span>記録</button>
+    <button type="button" data-tab="songs"><span class="ni">♪</span>曲</button>
+    <button type="button" data-tab="rank"><span class="ni">🏆</span>ランキング</button>
+    <button type="button" data-tab="recommend"><span class="ni">💡</span>おすすめ</button>
+  </nav>
+</div>
+<div id="toast" class="toast" hidden><span id="toastText"></span><button id="toastBtn" type="button">元に戻す</button></div>
+<div id="viewer" class="viewer" hidden><button id="viewerClose" class="viewer-close" type="button" aria-label="閉じる">✕</button><div class="viewer-scroll"><img id="viewerImg" alt="採点の元の画像"></div></div>
+<noscript><p class="noscript">このアプリは JavaScript を使います。</p></noscript>
+<script src="./app.js?v=1"></script>
+</body>
+</html>
